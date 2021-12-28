@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: app.js
-    destination: /webapps/myApp
+    destination: /nodeapp
 hooks:
   BeforeInstall:
     - location: scripts/install_dependencies
