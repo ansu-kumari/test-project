@@ -2,18 +2,22 @@ version: 0.0
 os: linux
 files:
   - source: /app.js
-    destination: nodeapp/
+    destination: /home/ec2-user/nodeapp
 hooks:
   BeforeInstall:
     - location: scripts/install_dependencies
       timeout: 300
+      runas: ec2-user
   AfterInstall:
     - location: scripts/start_server
       timeout: 300
+      runas: ec2-user
   ApplicationStart:
     - location: scripts/restart_server
       timeout: 300
+      runas: ec2-user
   ApplicationStop:
     - location: scripts/stop_server
       timeout: 300
+      runas: ec2-user
 
