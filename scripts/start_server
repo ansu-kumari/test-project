@@ -1,3 +1,8 @@
 #!/bin/bash
 source /home/ec2-user/.bash_profile
-node ~/nodeapp/app.js
+# node ~/nodeapp/app.js
+
+pm2 start app.js
+pm2 save
+pm2 startup
+sudo env PATH=$PATH:/home/ec2-user/.nvm/versions/node/v17.3.0/bin /home/ec2-user/.nvm/versions/node/v17.3.0/lib/node_modules/pm2/bin/pm2 startup systemd -u ec2-user --hp /home/ec2-user
